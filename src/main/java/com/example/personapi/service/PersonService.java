@@ -125,5 +125,28 @@ public class PersonService {
         return this.persons.stream().map(Person::getName).map(String::toUpperCase).collect(Collectors.toList());
     }
 
+    public Map <String,Double> getCountCity()
+    {
+        Map <String,Double> mp = new HashMap<>();
+
+        Double sum = 0.0;
+
+        for (int i = 0 ; i < this.persons.size();i++)
+        {
+                sum += this.persons.get(i).getMoney();
+        }
+
+        mp.put("MONEY",sum);
+
+        return mp;
+    }
+
+    public String Joined()
+    {
+        return this.persons.stream()
+        .map(Object::toString)
+        .collect(Collectors.joining(", "));
+    }
+
 
 }

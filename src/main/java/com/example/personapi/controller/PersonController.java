@@ -12,7 +12,7 @@ import com.example.personapi.service.PersonService;
 import java.util.*;
 
 @RestController
-@RequestMapping("/api/persons")
+@RequestMapping("/api")
 public class PersonController {
 
     private final PersonService personService;
@@ -61,6 +61,18 @@ public class PersonController {
 
       return ResponseEntity.ok(result);
 
+    }
+
+    @GetMapping("/getCountCity")
+    public ResponseEntity<Object> getCityCount()
+    {
+       return ResponseEntity.ok(this.personService.getCountCity());
+    }
+
+    @GetMapping("/joinString")
+    public ResponseEntity<Object> getJoinString()
+    {
+         return ResponseEntity.ok(this.personService.Joined());
     }
   
 }
